@@ -1,0 +1,25 @@
+{
+  "Serilog": {
+    "Using": [
+      "Serilog.Sinks.Console"
+    ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft.Hosting.Lifetime": "Information",
+        "Microsoft": "Warning"
+      }
+    },
+    "Enrich": [
+      "FromLogContext"
+    ],
+    "WriteTo": [
+      {
+        "Name": "Console",
+        "Args": {
+          "outputTemplate": "[{Timestamp:HH:mm:ss}::{Level:u3}::{SourceContext}] {Message:lj}{NewLine}{Exception}"
+        }
+      }
+    ]
+  }
+}
