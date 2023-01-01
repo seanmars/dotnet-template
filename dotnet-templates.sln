@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostAppWithSerilog", "HostAppWithSerilog\HostAppWithSerilog.csproj", "{70F83DC2-F913-4514-9443-5B9139D6FE8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionConsoleTemplate", "DependencyInjectionConsoleTemplate\DependencyInjectionConsoleTemplate.csproj", "{3C00C31D-657E-4EEF-94D9-2378FEDF4B15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIConsoleWithDbContext", "DIConsoleWithDbContext\DIConsoleWithDbContext.csproj", "{F9AFC323-87D3-4530-85A8-8CAAE4DB5627}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{70F83DC2-F913-4514-9443-5B9139D6FE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70F83DC2-F913-4514-9443-5B9139D6FE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70F83DC2-F913-4514-9443-5B9139D6FE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C00C31D-657E-4EEF-94D9-2378FEDF4B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C00C31D-657E-4EEF-94D9-2378FEDF4B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C00C31D-657E-4EEF-94D9-2378FEDF4B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C00C31D-657E-4EEF-94D9-2378FEDF4B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AFC323-87D3-4530-85A8-8CAAE4DB5627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AFC323-87D3-4530-85A8-8CAAE4DB5627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AFC323-87D3-4530-85A8-8CAAE4DB5627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AFC323-87D3-4530-85A8-8CAAE4DB5627}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
