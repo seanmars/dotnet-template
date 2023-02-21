@@ -10,14 +10,27 @@ var configuration = new MapperConfiguration(config =>
 
 var mapper = configuration.CreateMapper();
 
-var src = new UserSource()
+var src = new List<UserSource>();
+for (var i = 0; i < 5; i++)
 {
-    Name = "source name",
-    CreatedTime = 1234567890,
-    Value = int.MaxValue
-};
+    src.Add(new()
+    {
+        Name = i.ToString(),
+        CreatedTime = i,
+        Value = i
+    });
+}
 
-var result = mapper.Map<UserDest>(src);
+var result = mapper.Map<List<UserDest>>(src, options =>
+{
+    options.AfterMap((o, list) =>
+    {
+        foreach (var data in list)
+        {
+            data.Id = 1000;
+        }
+    });
+});
 
 Console.WriteLine(JsonSerializer.Serialize(result));
 

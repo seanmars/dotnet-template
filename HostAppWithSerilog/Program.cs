@@ -47,11 +47,13 @@ async Task MainEntry(params string[] arguments)
 
     try
     {
-        topLogger.Information("Start {Name}", AppDomain.CurrentDomain.FriendlyName);
+        topLogger.Information("Create {Name}", AppDomain.CurrentDomain.FriendlyName);
 
         var host = CreateHost(arguments);
 
-        await host.RunAsync();
+        topLogger.Information("Start {Name}", AppDomain.CurrentDomain.FriendlyName);
+
+        // await host.RunAsync();
     }
     catch (Exception e)
     {

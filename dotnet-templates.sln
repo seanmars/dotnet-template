@@ -8,6 +8,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIConsoleWithDbContext", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseAutoMapper", "UseAutoMapper\UseAutoMapper.csproj", "{A7B7B64B-1597-41A5-A35E-75282DE6E10F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProvingGround", "ProvingGround", "{485A0609-8441-4D81-8F70-512B5D696EFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AboutConfigureAwait", "AboutConfigureAwait\AboutConfigureAwait.csproj", "{9D174E36-63E6-42C0-B485-2A032D4A00BE}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzJob", "QuartzJob\QuartzJob.csproj", "{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}"
 EndProject
 Global
@@ -32,6 +35,13 @@ Global
 		{A7B7B64B-1597-41A5-A35E-75282DE6E10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7B7B64B-1597-41A5-A35E-75282DE6E10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7B7B64B-1597-41A5-A35E-75282DE6E10F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D174E36-63E6-42C0-B485-2A032D4A00BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D174E36-63E6-42C0-B485-2A032D4A00BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D174E36-63E6-42C0-B485-2A032D4A00BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D174E36-63E6-42C0-B485-2A032D4A00BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9D174E36-63E6-42C0-B485-2A032D4A00BE} = {485A0609-8441-4D81-8F70-512B5D696EFB}
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Release|Any CPU.ActiveCfg = Release|Any CPU
