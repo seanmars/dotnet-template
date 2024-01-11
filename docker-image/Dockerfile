@@ -1,13 +1,23 @@
-FROM microsoft/dotnet:{3.0}-sdk as publishImage
+FROM mcr.microsoft.com/dotnet/aspnet:{Version} AS base
+USER $APP_UID
 WORKDIR /app
-COPY ./{source-code-folder}/. .
-RUN dotnet restore
-RUN dotnet publish -c Release -o Publish
+EXPOSE 8080
+EXPOSE 8081
 
-FROM microsoft/dotnet:{3.0}-aspnetcore-runtime as execIamge
-WORKDIR /www
-ENV ASPNETCORE_ENVIRONMENT="{Production}"
-ENV ASPNETCORE_URLS="{http://+:80}"
-COPY --from=publishImage /app/Publish/. /www/.
+FROM mcr.microsoft.com/dotnet/sdk:{Version} AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["{Project Folder}/{Project Name}.csproj", "{Project Folder}/"]
+RUN dotnet restore "{Project Folder}/{Project Name}.csproj"
+COPY . .
+WORKDIR "/src/{Project Folder}"
+RUN dotnet build "{Project Name}.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-ENTRYPOINT /bin/bash -c "dotnet {project-name}.dll"
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "{Project Name}.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "{Project Name}.dll"]
