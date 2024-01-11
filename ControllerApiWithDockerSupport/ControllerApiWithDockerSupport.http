@@ -1,0 +1,6 @@
+@ControllerApiWithDockerSupport_HostAddress = http://localhost:5252
+
+GET {{ControllerApiWithDockerSupport_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
