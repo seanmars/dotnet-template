@@ -25,9 +25,10 @@ var result = mapper.Map<List<UserDest>>(src, options =>
 {
     options.AfterMap((o, list) =>
     {
+        // Generator random data id
         foreach (var data in list)
         {
-            data.Id = 1000;
+            data.Id = new Random().Next(1, 100);
         }
     });
 });

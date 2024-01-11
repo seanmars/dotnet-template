@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 const string EnvironmentVariableKey = "DOTNET_ENVIRONMENT";
 
-static void ConfigureServices(IServiceCollection services, string[] args)
+static void ConfigureServices(IServiceCollection services, string[]? args)
 {
     // Environment
     var environmentName = Environment.GetEnvironmentVariable(EnvironmentVariableKey);

@@ -22,9 +22,17 @@ public class JobController : ControllerBase
     {
         var scheduler = await _factory.GetScheduler();
 
+        var jobKey = new JobKey("HelloWorldJob");
+
+        // Check if the job already exists
+        if (await scheduler.CheckExists(jobKey))
+        {
+            return BadRequest("Job already exists");
+        }
+
         // Create a JobKey for the HelloWorldJob
         var jobDetail = JobBuilder.Create<HelloWorldJob>()
-            .WithIdentity("HelloWorldJob")
+            .WithIdentity(jobKey)
             .Build();
 
         // Create a trigger for the job

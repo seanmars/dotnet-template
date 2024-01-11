@@ -12,7 +12,20 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddQuartz(q =>
 {
-    q.UseMicrosoftDependencyInjectionJobFactory();
+    q.UseSimpleTypeLoader();
+    q.UseInMemoryStore();
+    
+    // convert time zones using converter that can handle Windows/Linux differences
+    // integration https://github.com/mattjohnsonpint/TimeZoneConverter
+    // q.UseTimeZoneConverter();
+    
+    // auto-interrupt long-running job
+    // q.UseJobAutoInterrupt(options =>
+    // {
+    //     // this is the default
+    //     options.DefaultMaxRunTime = TimeSpan.FromMinutes(5);
+    // });
+    
     q.AddJob<HelloWorldJob>(opts =>
     {
         opts.StoreDurably();
