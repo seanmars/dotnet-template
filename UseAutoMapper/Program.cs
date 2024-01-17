@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
 using System.Text.Json;
 using AutoMapper;
+using UseAutoMapper;
 
 var configuration = new MapperConfiguration(config =>
 {
@@ -35,25 +35,28 @@ var result = mapper.Map<List<UserDest>>(src, options =>
 
 Console.WriteLine(JsonSerializer.Serialize(result));
 
-public class UserDest
+namespace UseAutoMapper
 {
-    public int Id { get; set; }
-    public string Name { get; set; } = null!;
-    public long CreatedTime { get; set; }
-    public int Value { get; set; }
-}
-
-public class UserSource
-{
-    public string Name { get; set; } = null!;
-    public long CreatedTime { get; set; }
-    public int Value { get; set; }
-}
-
-public class UserProfile : Profile
-{
-    public UserProfile()
+    public class UserDest
     {
-        CreateMap<UserSource, UserDest>();
+        public int Id { get; set; }
+        public string Name { get; set; } = null!;
+        public long CreatedTime { get; set; }
+        public int Value { get; set; }
+    }
+
+    public class UserSource
+    {
+        public string Name { get; set; } = null!;
+        public long CreatedTime { get; set; }
+        public int Value { get; set; }
+    }
+
+    public class UserProfile : Profile
+    {
+        public UserProfile()
+        {
+            CreateMap<UserSource, UserDest>();
+        }
     }
 }
