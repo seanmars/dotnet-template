@@ -9,7 +9,7 @@ var jwtSetting = new JwtSettings()
     Issuer = "dev",
     Audience = "dev",
     ExpiryMinutes = 60,
-    Secret = "secret-key-from-dev"
+    Secret = "secret-key-json-web-token-generator"
 };
 
 var jwtGenerator = new JwtGenerator(dateTimeProvider, jwtSetting);
