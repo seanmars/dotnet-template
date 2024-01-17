@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzJob", "QuartzJob\Quar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerApiWithDockerSupport", "ControllerApiWithDockerSupport\ControllerApiWithDockerSupport.csproj", "{295A373B-D554-4088-95AB-BD9315284382}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonWebTokenGenerator", "JsonWebTokenGenerator\JsonWebTokenGenerator.csproj", "{7895300A-265D-4353-95AF-F5A42BA8D6CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{295A373B-D554-4088-95AB-BD9315284382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{295A373B-D554-4088-95AB-BD9315284382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{295A373B-D554-4088-95AB-BD9315284382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7895300A-265D-4353-95AF-F5A42BA8D6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7895300A-265D-4353-95AF-F5A42BA8D6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7895300A-265D-4353-95AF-F5A42BA8D6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7895300A-265D-4353-95AF-F5A42BA8D6CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
