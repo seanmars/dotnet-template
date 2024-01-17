@@ -21,7 +21,7 @@ public class JwtGenerator : IJwtGenerator
     {
         var signingCredentials = new SigningCredentials(
             new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
-            SecurityAlgorithms.HmacSha256Signature);
+            SecurityAlgorithms.HmacSha256);
 
         var claimsIdentity = new ClaimsIdentity(new[]
         {
