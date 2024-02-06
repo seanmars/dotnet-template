@@ -25,7 +25,8 @@ host.Services.UseScheduler(scheduler =>
         .Schedule<SampleInvocable>()
         .DailyAt(0, 15)
         .Zoned(TimeZoneInfo.Local);
-});
+}).OnError(Console.WriteLine);
+
 host.Run();
 
 class SampleInvocable : IInvocable
