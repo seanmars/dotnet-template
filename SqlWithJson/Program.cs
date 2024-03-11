@@ -1,8 +1,9 @@
 ﻿using Bogus;
-using SqlWithJson;
+using Dumpify;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SqlWithJson;
 
 var serviceCollection = new ServiceCollection();
 serviceCollection.AddLogging(builder =>
@@ -19,36 +20,58 @@ serviceCollection.AddDbContextPool<AppDbContext>(options =>
     options.EnableSensitiveDataLogging();
 });
 
-// Create user data by Bogus
-var userFaker = new Faker<User>()
-    .RuleFor(u => u.Name, f => f.Person.FullName)
-    .RuleFor(u => u.Goods, f =>
-    {
-        var range = Enumerable.Range(1, 100);
-        var randomized = f.Random.Shuffle(range).ToList();
-
-        return new Goods()
-        {
-            Items = f.Make(f.Random.Int(1, 30), () => new Item
-            {
-                ItemId = f.PickRandom(randomized),
-                Count = f.PickRandom(randomized)
-            }).ToList(),
-            Equipments = f.Make(f.Random.Int(1, 20), () => new Equipment
-            {
-                ItemId = f.PickRandom(randomized),
-                Str = f.PickRandom(randomized),
-                Dex = f.PickRandom(randomized),
-                Wis = f.PickRandom(randomized),
-            }).ToList()
-        };
-    });
-
-
 var serviceProvider = serviceCollection.BuildServiceProvider();
-await using var dbContext = serviceProvider.GetRequiredService<AppDbContext>();
-await dbContext.Database.EnsureDeletedAsync();
-await dbContext.Database.EnsureCreatedAsync();
 
-await dbContext.Users.AddRangeAsync(userFaker.Generate(100));
-await dbContext.SaveChangesAsync();
+// await CreateSomeData(serviceProvider);
+await FindSomeData(serviceProvider);
+
+async Task FindSomeData(IServiceProvider sp)
+{
+    await using var dbContext = sp.GetRequiredService<AppDbContext>();
+    await dbContext.Database.EnsureCreatedAsync();
+
+    var users = await dbContext.Users
+        .AsNoTracking()
+        .Where(u => u.Goods.Items != null && u.Goods.Items.Any(eq => eq.Count > 50))
+        .ToListAsync();
+
+    users.Count.DumpConsole();
+}
+
+async Task CreateSomeData(IServiceProvider sp)
+{
+    // Create user data by Bogus
+    var faker = new Faker<User>()
+        .RuleFor(u => u.Name, f => f.Person.FullName)
+        .RuleFor(u => u.Goods, f =>
+        {
+            var range = Enumerable.Range(1, 100);
+            var randomized = f.Random.Shuffle(range).ToList();
+
+            // return new Goods()
+            // {
+            //     Items = f.Make(f.Random.Int(1, 30), () => new Item
+            //     {
+            //         ItemKey = f.PickRandom(randomized),
+            //         Count = f.PickRandom(randomized)
+            //     }).ToList(),
+            // };
+
+            return new Goods()
+            {
+                Items = f.Make(f.Random.Int(1, 30),
+                    () => new Item
+                    {
+                        ItemKey = f.PickRandom(randomized),
+                        Count = f.PickRandom(randomized)
+                    }).ToList(),
+            };
+        });
+
+    await using var dbContext = sp.GetRequiredService<AppDbContext>();
+    await dbContext.Database.EnsureDeletedAsync();
+    await dbContext.Database.EnsureCreatedAsync();
+
+    await dbContext.Users.AddRangeAsync(faker.Generate(1000));
+    await dbContext.SaveChangesAsync();
+}
