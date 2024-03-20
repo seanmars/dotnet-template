@@ -4,11 +4,22 @@ using Coravel;
 using Coravel.Invocable;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 
 var hostBuilder = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
     {
+        services.AddLogging(opt =>
+        {
+            opt.AddSimpleConsole(config =>
+                {
+                    config.SingleLine = true;
+                    config.TimestampFormat = "[HH:mm:ss] ";
+                })
+                .SetMinimumLevel(LogLevel.Debug);
+        });
+
         services.AddScheduler();
         services.AddTransient<SampleInvocable>();
     });
@@ -19,7 +30,8 @@ host.Services.UseScheduler(scheduler =>
 {
     scheduler
         .Schedule<SampleInvocable>()
-        .EveryFiveSeconds();
+        .EveryFiveSeconds()
+        .Once();
 
     scheduler
         .Schedule<SampleInvocable>()
@@ -31,9 +43,17 @@ host.Run();
 
 class SampleInvocable : IInvocable
 {
-    public Task Invoke()
+    private readonly ILogger<SampleInvocable> _logger;
+
+    public SampleInvocable(ILogger<SampleInvocable> logger)
     {
-        Console.WriteLine("Hello from Coravel!");
+        _logger = logger;
+    }
+
+    public  Task Invoke()
+    {
+        _logger.LogDebug("Invocable executed!");
+        // await Task.Delay(10000);
         return Task.CompletedTask;
     }
 }
