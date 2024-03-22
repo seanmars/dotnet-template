@@ -21,7 +21,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplementIDisposable", "ImplementIDisposable\ImplementIDisposable.csproj", "{E54DD184-E454-4B37-A62D-D336767BAC7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlWithJson", "SqlWithJson\SqlWithJson.csproj", "{32548BC7-68F6-4F3B-8475-E4542804A387}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoravelSample", "CoravelSample\CoravelSample.csproj", "{C2936AED-738D-45C7-B36F-C671B8FE2C2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWithHttpClient", "ConsoleWithHttpClient\ConsoleWithHttpClient.csproj", "{255D65F2-E16C-4086-846A-1CB63E79EAA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +74,10 @@ Global
 		{C2936AED-738D-45C7-B36F-C671B8FE2C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2936AED-738D-45C7-B36F-C671B8FE2C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2936AED-738D-45C7-B36F-C671B8FE2C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{255D65F2-E16C-4086-846A-1CB63E79EAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255D65F2-E16C-4086-846A-1CB63E79EAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255D65F2-E16C-4086-846A-1CB63E79EAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255D65F2-E16C-4086-846A-1CB63E79EAA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -78,5 +85,6 @@ Global
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E54DD184-E454-4B37-A62D-D336767BAC7C} = {33A569F2-550C-4C1B-9199-468661A8EAEA}
+		{255D65F2-E16C-4086-846A-1CB63E79EAA1} = {33A569F2-550C-4C1B-9199-468661A8EAEA}
 	EndGlobalSection
 EndGlobal
