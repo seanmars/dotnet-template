@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoravelSample", "CoravelSam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWithHttpClient", "ConsoleWithHttpClient\ConsoleWithHttpClient.csproj", "{255D65F2-E16C-4086-846A-1CB63E79EAA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfSqlite", "EfSqlite\EfSqlite.csproj", "{385D7D0C-E904-4586-82E9-7941364DFC30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{255D65F2-E16C-4086-846A-1CB63E79EAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{255D65F2-E16C-4086-846A-1CB63E79EAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{255D65F2-E16C-4086-846A-1CB63E79EAA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385D7D0C-E904-4586-82E9-7941364DFC30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385D7D0C-E904-4586-82E9-7941364DFC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385D7D0C-E904-4586-82E9-7941364DFC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385D7D0C-E904-4586-82E9-7941364DFC30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
