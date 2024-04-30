@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Bogus" Version="35.5.0"/>
+        <PackageReference Include="Bogus" Version="35.5.1" />
         <PackageReference Include="Dumpify" Version="0.6.5"/>
         <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="8.0.0"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0"/>
