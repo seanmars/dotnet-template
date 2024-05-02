@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWithHttpClient", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfSqlite", "EfSqlite\EfSqlite.csproj", "{385D7D0C-E904-4586-82E9-7941364DFC30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetryNet", "OpenTelemetryNet\OpenTelemetryNet.csproj", "{F910D5B9-AB80-4C01-AE48-9D192CF33671}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,10 @@ Global
 		{385D7D0C-E904-4586-82E9-7941364DFC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{385D7D0C-E904-4586-82E9-7941364DFC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{385D7D0C-E904-4586-82E9-7941364DFC30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F910D5B9-AB80-4C01-AE48-9D192CF33671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F910D5B9-AB80-4C01-AE48-9D192CF33671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F910D5B9-AB80-4C01-AE48-9D192CF33671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F910D5B9-AB80-4C01-AE48-9D192CF33671}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CD7A1F29-0A42-45EC-BCF2-75C3CADF7778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
