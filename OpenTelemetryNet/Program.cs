@@ -1,4 +1,5 @@
 using System.Reflection;
+using OpenTelemetry;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
@@ -9,10 +10,11 @@ var serviceVersion = Assembly.GetExecutingAssembly().GetCustomAttribute<Assembly
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Logging.AddOpenTelemetry(logging =>
+{
+    logging.IncludeFormattedMessage = true;
+    logging.IncludeScopes = true;
+});
 
 builder.Services
     .AddOpenTelemetry()
@@ -27,25 +29,34 @@ builder.Services
             .AddAspNetCoreInstrumentation()
             .AddHttpClientInstrumentation()
             .AddEntityFrameworkCoreInstrumentation()
-            .AddConsoleExporter()
-            .AddOtlpExporter();
+            .AddConsoleExporter();
     })
     .WithMetrics(metrics =>
     {
         metrics
+            .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("OpenTelemetryNet"))
             .AddRuntimeInstrumentation()
+            .AddProcessInstrumentation()
             .AddMeter(
                 "Microsoft.AspNetCore.Hosting",
                 "Microsoft.AspNetCore.Server.Kestrel",
                 "Microsoft.AspNetCore.Routing"
             )
+            .AddPrometheusExporter(options => options.DisableTotalNameSuffixForCounters = true)
             .AddAspNetCoreInstrumentation()
             .AddHttpClientInstrumentation()
-            .AddConsoleExporter()
-            .AddOtlpExporter();
-    });
+            .AddConsoleExporter();
+    })
+    .UseOtlpExporter();
+
+// Add services to the container.
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.MapPrometheusScrapingEndpoint();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

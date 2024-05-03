@@ -12,6 +12,9 @@ dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
 dotnet add package OpenTelemetry.Instrumentation.AspNetCore
 dotnet add package OpenTelemetry.Instrumentation.Http
 dotnet add package OpenTelemetry.Instrumentation.EntityFrameworkCore
+dotnet add package OpenTelemetry.Instrumentation.Runtime
+dotnet add package OpenTelemetry.Instrumentation.Process --prerelease
+dotnet add package OpenTelemetry.Exporter.Prometheus.AspNetCore --prerelease
 ```
 
 ## Jaeger
