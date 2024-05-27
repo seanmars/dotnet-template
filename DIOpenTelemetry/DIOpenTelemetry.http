@@ -1,0 +1,6 @@
+@DIOpenTelemetry_HostAddress = http://localhost:5081
+
+GET {{DIOpenTelemetry_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
