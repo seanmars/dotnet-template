@@ -15,8 +15,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Coravel" Version="5.0.4" />
-      <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+      <PackageReference Include="Coravel" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
     </ItemGroup>
 
 </Project>
