@@ -1,0 +1,23 @@
+﻿<Solution>
+  <Project Path="AboutConfigureAwait\AboutConfigureAwait.csproj" Type="Classic C#" />
+  <Project Path="AopSample\AopSample.csproj" Type="Classic C#" />
+  <Project Path="ConsoleWithHttpClient\ConsoleWithHttpClient.csproj" Type="Classic C#" />
+  <Project Path="ControllerApiWithDockerSupport\ControllerApiWithDockerSupport.csproj" Type="Classic C#" />
+  <Project Path="CoravelSample\CoravelSample.csproj" Type="Classic C#" />
+  <Project Path="DependencyInjectionConsoleTemplate\DependencyInjectionConsoleTemplate.csproj" Type="Classic C#" />
+  <Project Path="DIConsoleWithDbContext\DIConsoleWithDbContext.csproj" Type="Classic C#" />
+  <Project Path="DIOpenTelemetry\DIOpenTelemetry.csproj" Type="Classic C#" />
+  <Project Path="EfSqlite\EfSqlite.csproj" Type="Classic C#" />
+  <Project Path="HostAppWithSerilog\HostAppWithSerilog.csproj" Type="Classic C#" />
+  <Project Path="ImplementIDisposable\ImplementIDisposable.csproj" Type="Classic C#" />
+  <Project Path="JsonWebTokenGenerator\JsonWebTokenGenerator.csproj" Type="Classic C#" />
+  <Project Path="OpenApiWithScalar\OpenApiWithScalar.csproj" Type="Classic C#" />
+  <Project Path="OpenTelemetryConsole\OpenTelemetryConsole.csproj" Type="Classic C#" />
+  <Project Path="OpenTelemetryNet\OpenTelemetryNet.csproj" Type="Classic C#" />
+  <Project Path="QuartzJob\QuartzJob.csproj" Type="Classic C#" />
+  <Project Path="SpectreConsoleApp\SpectreConsoleApp.csproj" Type="Classic C#" />
+  <Project Path="SqlWithJson\SqlWithJson.csproj" Type="Classic C#" />
+  <Project Path="UseAutoMapper\UseAutoMapper.csproj" Type="Classic C#" />
+  <Project Path="WebApiWithFastEndpoints\WebApiWithFastEndpoints.csproj" Type="Classic C#" />
+  <Project Path="WebAppMediaR\WebAppMediaR.csproj" Type="Classic C#" />
+</Solution>
