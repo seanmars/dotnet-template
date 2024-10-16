@@ -1,7 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-
+﻿using System.Security.Cryptography;
+using System.Text.Json;
 using JsonWebTokenGenerator.Authentication;
 using JsonWebTokenGenerator.Services;
+
+var key = new byte[32];
+RandomNumberGenerator.Create().GetBytes(key);
+var base64Secret = Convert.ToBase64String(key);
 
 var dateTimeProvider = new DateTimeProvider();
 var jwtSetting = new JwtSettings()
@@ -9,10 +13,11 @@ var jwtSetting = new JwtSettings()
     Issuer = "dev",
     Audience = "dev",
     ExpiryMinutes = 60,
-    Secret = "secret-key-json-web-token-generator"
+    Secret = base64Secret
 };
 
 var jwtGenerator = new JwtGenerator(dateTimeProvider, jwtSetting);
 
 var jwt = jwtGenerator.GenerateToken("dev", null);
+Console.WriteLine(JsonSerializer.Serialize(jwtSetting));
 Console.WriteLine(jwt);
